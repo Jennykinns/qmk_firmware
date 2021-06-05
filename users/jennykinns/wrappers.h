@@ -45,6 +45,10 @@
 #define ____QWERTY_RIGHT_2_________________________    KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT
 #define ____QWERTY_RIGHT_3_________________________    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 
+/* Qwerty Home row Mod Taps */
+#define ____QWERTY_LEFT_HOMEMODS_2_________________    MT(MOD_LGUI, KC_A), KC_S, MT(MOD_LALT, KC_D), MT(MOD_LSFT, KC_F), KC_G
+#define ____QWERTY_RIGHT_HOMEMODS_2________________    KC_H, MT(MOD_LSFT, KC_J), MT(MOD_LALT, KC_K), KC_L, MT(MOD_RGUI, KC_QUOT)
+
 /* Colemak-DH
  * ,----------------------------------. ,----------------------------------.
  * |   Q  |   W  |   F  |   P  |   B  | |   J  |   L  |   U  |   Y  |   '  |

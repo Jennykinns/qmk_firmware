@@ -2,10 +2,14 @@
 
 #define FORCE_NKRO
 
+// HOMEROW MODS
 #ifdef TAPPING_TERM
 #    undef TAPPING_TERM
-#    define TAPPING_TERM 200
-#endif  // TAPPING_TERM
+#endif
+#define TAPPING_TERM 200
+#define IGNORE_MOD_TAP_INTERRUPT
+#define PERMISSIVE_HOLD
+
 
 #ifdef LEADER_ENABLE
 #    undef LEADER_TIMEOUT
