@@ -16,9 +16,9 @@
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Enter|      |      |      |      |      |      |      |      |      |      |Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|      |      |      |      |      |      |      |      |      |      |RShift|
+ * | Shift|      |      |      |      |      |      |      |      |      |      |   ?  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Fn0  | Super| Alt  | Ctrl |Raise |    Space    |Lower | Ctrl | RAlt | Cmd  |Leader|
+ * |KeyLck|   ?  | Alt  | Ctrl |Raise |    Space    |Lower | Ctrl |   ?  |   ?  |Leader|
  * `-----------------------------------------------------------------------------------'
 */
 #define LAYOUT_preonic_base( \
@@ -31,8 +31,8 @@
     KC_ESC,  K01,     K02,     K03,     K04,     K05,     K06,     K07,     K08,     K09,     K0A,     KC_DEL, \
     KC_TAB,  K11,     K12,     K13,     K14,     K15,     K16,     K17,     K18,     K19,     K1A,     KC_BSPC,  \
     KC_ENT,  K21,     K22,     K23,     K24,     K25,     K26,     K27,     K28,     K29,     K2A,     KC_ENT,   \
-    KC_LSFT, K31,     K32,     K33,     K34,     K35,     K36,     K37,     K38,     K39,     K3A,     KC_RSFT,  \
-    XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, TD(TD_RALO), KC_SPC,   TD(TD_LORA), KC_RCTL, KC_RALT, KC_APP,  KC_LEAD  \
+    KC_LSFT, K31,     K32,     K33,     K34,     K35,     K36,     K37,     K38,     K39,     K3A,     XXXXXXX,  \
+    KC_LOCK, XXXXXXX, KC_LALT, KC_LCTL, TD(TD_RALO), KC_SPC,   TD(TD_LORA), KC_RCTL, XXXXXXX, XXXXXXX, KC_LEAD  \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_preonic_base_wrapper(...)    LAYOUT_preonic_base(__VA_ARGS__)
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_preonic_base_wrapper(
 	____NUMBER_LEFT____________________________, ____NUMBER_RIGHT___________________________,
         ____QWERTY_LEFT_1__________________________, ____QWERTY_RIGHT_1_________________________,
-        ____QWERTY_LEFT_2__________________________, ____QWERTY_RIGHT_2_________________________,
+        ____QWERTY_LEFT_HOMEMODS_2_________________, ____QWERTY_RIGHT_HOMEMODS_2________________,
         ____QWERTY_LEFT_3__________________________, ____QWERTY_RIGHT_3_________________________
     ),
     [_COLEMAK] = LAYOUT_preonic_base_wrapper(
@@ -63,6 +63,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ____WORKMAN_LEFT_2_________________________, ____WORKMAN_RIGHT_2________________________,
         ____WORKMAN_LEFT_3_________________________, ____WORKMAN_RIGHT_3________________________
     ),
+    [_GAMING] = LAYOUT_preonic_base_wrapper(
+	____NUMBER_LEFT____________________________, ____NUMBER_RIGHT___________________________,
+        ____QWERTY_LEFT_1__________________________, ____QWERTY_RIGHT_1_________________________,
+        ____QWERTY_LEFT_2__________________________, ____QWERTY_RIGHT_2_________________________,
+        ____QWERTY_LEFT_3__________________________, ____QWERTY_RIGHT_3_________________________
+    ),
         
 
 /* 
@@ -76,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |   ____LOWER_LEFT_3____________   |   ____LOWER_RIGHT_3___________   |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |######|      |Insert| Caps | Lock |
+ * |      |      |      |      |      |             |######|      |      |Insert|NumLck|
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_1x2uC_wrapper( \
@@ -84,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_DEL,  ____LOWER_LEFT_1___________________________, ____LOWER_RIGHT_1__________________________, _______, \
   _______, ____LOWER_LEFT_2___________________________, ____LOWER_RIGHT_2__________________________, _______, \
   _______, ____LOWER_LEFT_3___________________________, ____LOWER_RIGHT_3__________________________, _______, \
-  _______, _______, _______, _______, _______, _______,          _______, _______, KC_INS,  KC_CAPS, KC_LOCK  \
+  _______, _______, _______, _______, _______, _______,          _______, _______, _______, KC_INS,  KC_NLCK  \
 ),
 
 /* 
@@ -98,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |   ____RAISE_LEFT_3____________   |   ____RAISE_RIGHT_3___________   |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |######|             |      |      |      |NumLck|PrntSc|
+ * | Caps |PrntSc|      |      |######|             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_1x2uC_wrapper( \
@@ -106,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_DEL,  ____RAISE_LEFT_1___________________________, ____RAISE_RIGHT_1__________________________, _______, \
   _______, ____RAISE_LEFT_2___________________________, ____RAISE_RIGHT_2__________________________, _______,  \
   _______, ____RAISE_LEFT_3___________________________, ____RAISE_RIGHT_3__________________________, _______, \
-  _______, _______, _______, _______, _______, _______,          _______, _______, _______, KC_NLCK, KC_PSCR  \
+  KC_CAPS, KC_PSCR, _______, _______, _______, _______,          _______, _______, _______, _______, _______  \
 ),
 
 /* 
