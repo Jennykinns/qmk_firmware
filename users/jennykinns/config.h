@@ -6,7 +6,7 @@
 #ifdef TAPPING_TERM
 #    undef TAPPING_TERM
 #endif
-#define TAPPING_TERM 200
+#define TAPPING_TERM 150
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
