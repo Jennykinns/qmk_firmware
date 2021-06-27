@@ -18,7 +18,7 @@
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|      |      |      |      |      |      |      |      |      |      |   ?  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |KeyLck|   ?  | Alt  | Ctrl |Raise |    Space    |Lower | Ctrl |   ?  |   ?  |Leader|
+ * |KeyLck|  Gui | Alt  | Ctrl |Raise |    Space    |Lower | Ctrl |   ?  |   ?  |Leader|
  * `-----------------------------------------------------------------------------------'
 */
 #define LAYOUT_preonic_base( \
@@ -32,7 +32,7 @@
     KC_TAB,  K11,     K12,     K13,     K14,     K15,     K16,     K17,     K18,     K19,     K1A,     KC_BSPC,  \
     KC_ENT,  K21,     K22,     K23,     K24,     K25,     K26,     K27,     K28,     K29,     K2A,     KC_ENT,   \
     KC_LSFT, K31,     K32,     K33,     K34,     K35,     K36,     K37,     K38,     K39,     K3A,     XXXXXXX,  \
-    KC_LOCK, XXXXXXX, KC_LALT, KC_LCTL, TD(TD_RALO), KC_SPC,   TD(TD_LORA), KC_RCTL, XXXXXXX, XXXXXXX, KC_LEAD  \
+    KC_LOCK, KC_LGUI, KC_LALT, KC_LCTL, TD(TD_RALO), KC_SPC,   TD(TD_LORA), KC_RCTL, XXXXXXX, XXXXXXX, KC_LEAD  \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_preonic_base_wrapper(...)    LAYOUT_preonic_base(__VA_ARGS__)
